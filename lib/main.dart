@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'screens/transferencia/lista.dart';
-
 import 'package:intl/intl.dart';
+import 'screens/dashboard.dart';
 
-import 'database/app_database.dart'; // certifique-se de ajustar o caminho
-
-import 'package:flutter/material.dart';
-import 'screens/dashboard.dart'; // nova importação
-
-void main() => runApp(BankApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const BankApp());
+}
 
 class BankApp extends StatelessWidget {
+  const BankApp({super.key});
+
   @override
   Widget build(BuildContext context) {
+    Intl.defaultLocale = "pt_BR";
     return MaterialApp(
-      home: const Dashboard(), // substitui o Scaffold
+      debugShowCheckedModeBanner: false,
+      home: const Dashboard(),
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
